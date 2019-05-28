@@ -27,9 +27,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+             
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -85,6 +88,7 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "src/styles.scss"
+              
             ],
             "scripts": [],
             "assets": [
