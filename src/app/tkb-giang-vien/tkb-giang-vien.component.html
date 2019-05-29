@@ -3,19 +3,21 @@
       <table class="table" >
         <thead>
           <tr>
-            <th>TT</th>
-            <th>Mã Giáo Viên</th>
-            <th> Họ</th>
+            <th>STT</th>
             <th>Tên Giáo Viên</th>
             <th>Ngày sinh </th>
-            <th>Giới Tính</th>
+            <th>Địa Chỉ</th>
             <th>Email</th>
             <th>Chuyên Môn</th>
           </tr>
         </thead>
-        <tbody>
-          
-            
+        <tbody *ngFor="let i of giaovien">
+          <td>{{i.id_giaovien}}</td>
+          <td>{{i.tengv}}</td>
+          <td>{{i.ngaysinh}}</td>
+          <td>{{i.diachi}}</td>
+          <td>{{i.mail}}</td>
+          <td>{{i.chuyenmon}}</td>
         </tbody>
       </table>
     </div>

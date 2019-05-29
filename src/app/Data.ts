@@ -3,6 +3,7 @@
 export class lop{
     id_lop:Number;
     tenlop:String;
+    khoi: String;
 }
 export class Mon {
     id_mon: Number;
@@ -25,4 +26,4 @@ export class hocsinh{
 
 }
 
-export const URL_API= "http://localhost:8080/sitetimetable";
+export const URL_API= "http://localhost:8080/timetable";

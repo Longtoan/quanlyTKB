@@ -9,7 +9,11 @@ export class ConnectMySQLService {
   constructor(
     private _httpClient : HttpClient
   ) { }
+  // get thông tin lop
   getAllLop(){
-    return this._httpClient.get(`${this.url}/read_class.php`);
+    return this._httpClient.get(`${this.url}/read_lop.php`);
+  }
+  getAllgiaovien(){
+    return this._httpClient.get(`${this.url}/read_giaovien.php `);
   }
 }

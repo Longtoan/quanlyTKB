@@ -9,8 +9,8 @@ import { XoatkbComponent } from "./xoatkb/xoatkb.component";
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "home", pathMatch: "full" },
-  {path: "home", component: HomeComponent},
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  {path: "", component: HomeComponent},
   { path: "moTkb", component: MoTkbComponent },
   { path: "tkbGiangvien", component: TkbGiangVienComponent },
   { path: "tkbTheoLop", component: TkbTheoLopComponent },
