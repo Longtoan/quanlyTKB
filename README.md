@@ -1,6 +1,21 @@
 # QLTKB
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+Input: 
+S: Giáo viên
+R: Các lớp
+M: Môn học
+T: các tiết cần sắp xếp để dạy
+------------------------------
+
+
+Ràng buộc
+Tại một thời điểm giáo viên không được phép dạy nhiều lớp
+Mỗi môn học có số lượng tiết trong tuần nhất định
+Trong một buổi không được phép có số lượng tiết nhiều hơn 1 Toán Văn Anh( được phép double)
+Mỗi giáo viên chỉ được phép dạy 1 bộ phận nhất định (Chuyên ngành)
+
+
 
 ## Development server
 

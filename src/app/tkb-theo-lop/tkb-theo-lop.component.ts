@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { lop } from "../Data";
+import { lop, hocsinh } from "../Data";
 import { ConnectMySQLService } from "../connect-my-sql.service";
+
 @Component({
   selector: "app-tkb-theo-lop",
   templateUrl: "./tkb-theo-lop.component.html",
@@ -8,13 +9,21 @@ import { ConnectMySQLService } from "../connect-my-sql.service";
 })
 export class TkbTheoLopComponent implements OnInit {
   lop;
-  constructor(private _connectAPI: ConnectMySQLService) {}
+  hocsinh;
+  constructor(private _connectAPI: ConnectMySQLService) {
+  }
 
   ngOnInit() {
-
-    this._connectAPI.getAllLop().subscribe((d: lop) => {
+    const result =  this._connectAPI.getAlllop().subscribe((d: lop) => {
       this.lop = d;
     });
-   
+    if(result) {
+      this._connectAPI.getclasshs().subscribe((hs:hocsinh) => {
+        this.hocsinh = hs.id_lop;
+      })
+    }
+    
   }
+  
+  
 }

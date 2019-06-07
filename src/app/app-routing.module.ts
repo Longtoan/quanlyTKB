@@ -5,19 +5,19 @@ import { MoTkbComponent } from "./mo-tkb/mo-tkb.component";
 import { TkbGiangVienComponent } from "./tkb-giang-vien/tkb-giang-vien.component";
 import { TkbTheoLopComponent } from "./tkb-theo-lop/tkb-theo-lop.component";
 import { XepTkbComponent } from "./xep-tkb/xep-tkb.component";
-import { XoatkbComponent } from "./xoatkb/xoatkb.component";
-import { LoginComponent } from './login/login.component';
-
+import { LoginComponent } from "./login/login.component";
+import { DSSVComponent } from "./tkb-theo-lop/dssv/dssv.component";
+import { AdminComponent } from './admin/admin.component';
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
-  {path: "", component: HomeComponent},
+  { path: "", component: HomeComponent },
   { path: "moTkb", component: MoTkbComponent },
   { path: "tkbGiangvien", component: TkbGiangVienComponent },
-  { path: "tkbTheoLop", component: TkbTheoLopComponent },
   { path: "xepTkb", component: XepTkbComponent },
-  { path: "xoaTkb", component: XoatkbComponent },
   { path: "login", component: LoginComponent },
-
+  { path: "tkbTheoLop", component: TkbTheoLopComponent },
+  { path: "tkbTheoLop/:id", component: DSSVComponent },
+  { path: "admin", component: AdminComponent }
 ];
 
 @NgModule({

@@ -1,25 +1,24 @@
 <div class="container">
-    <div class="row">
-      <table class="table" >
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Tên Giáo Viên</th>
-            <th>Ngày sinh </th>
-            <th>Địa Chỉ</th>
-            <th>Email</th>
-            <th>Chuyên Môn</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let i of giaovien">
-          <td>{{i.id_giaovien}}</td>
-          <td>{{i.tengv}}</td>
-          <td>{{i.ngaysinh}}</td>
-          <td>{{i.diachi}}</td>
-          <td>{{i.mail}}</td>
-          <td>{{i.chuyenmon}}</td>
-        </tbody>
-      </table>
-    </div>
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên Giáo Viên</th>
+          <th>Ngày sinh </th>
+          <th>Địa Chỉ</th>
+          <th>Email</th>
+          <th>Chuyên Môn</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let i of giaovien">
+        <td>{{i.id_giaovien}}</td>
+        <td>{{i.tengv}}</td>
+        <td>{{i.ngaysinh}}</td>
+        <td>{{i.diachi}}</td>
+        <td>{{i.mail}}</td>
+        <td>{{i.tenmon}}</td>
+      </tbody>
+    </table>
   </div>
-  
+</div>

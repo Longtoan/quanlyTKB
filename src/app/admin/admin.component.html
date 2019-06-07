@@ -1,0 +1,104 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-create-tab" data-toggle="pill" href="#v-pills-create" role="tab"
+          aria-controls="v-pills-create" aria-selected="true">Create thời khóa biểu</a>
+        <a class="nav-link" id="v-pills-addgv-tab" data-toggle="pill" href="#v-pills-addgv" role="tab"
+          aria-controls="v-pills-add" aria-selected="false">Thêm Giáo Viên</a>
+        <a class="nav-link" id="v-pills-class-tab" data-toggle="pill" href="#v-pills-class" role="tab"
+          aria-controls="v-pills-class" aria-selected="false">Thêm Class</a>
+      </div>
+    </div>
+
+
+    <div class="col-9">
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-create" role="tabpanel" aria-labelledby="v-pills-del-tab">...</div>
+        <div class="tab-pane fade " id="v-pills-addgv" role="tabpanel" aria-labelledby="v-pills-add-tab">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label>Id_giaovien</label>
+                <input type="number" class="form-control" id="id_giaovien" placeholder="Id_giaovien">
+              </div>
+              <div class="form-group col-md-5">
+                <label for="inputPassword4">Tên Giáo Viên</label>
+                <input type="text" class="form-control" id="tengv" placeholder="Tên Giáo Viên">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputPassword4">Street </label>
+                <input type="text" class="form-control" id="diachi" placeholder="Street">
+              </div>
+            </div>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">Email</label>
+                <input type="text" class="form-control" id="mail">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputchuyenmon">Chuyên Môn</label>
+                <select id="id_chuyenmon" class="form-control">
+                  <option selected>Chuyên Môn</option>
+                  <option>...</option>
+                </select>
+              </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form> <!--end Form-->
+         <div class="row">
+            <div class="col-3" *ngFor="let i of giaovien">
+                <ul class="list-group"  >
+
+                    <li class="list-group-item">{{i.id_giaovien}} {{i.tengv}} <button type="button" class="btn btn-danger">Xóa</button>
+                    </li> 
+
+                  </ul>
+               
+            </div>
+          </div><!-- end class giaovien -->
+        </div>
+        <div class="tab-pane fade" id="v-pills-class" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label>id_lop</label>
+                <input type="number" class="form-control" id="id_hs" placeholder="id_hocsinh">
+              </div>
+              <div class="form-group col-md-5">
+                <label for="inputPassword4">Tên Lớp</label>
+                <input type="text" class="form-control" id="tengv" placeholder="Tên Lớp">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputchuyenmon">id_khối</label>
+                <select id="id_chuyenmon" class="form-control">
+                  <option selected>Khối</option>
+                  <option>...</option>
+                </select>
+              </div>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <div class="row">
+              <div class="col-3" *ngFor="let l of lop">
+                  <ul class="list-group"  >
+  
+                      <li class="list-group-item">{{l.id_lop}} {{l.tenlop}} <button type="button" class="btn btn-danger">Xóa</button>
+                      </li> 
+  
+                    </ul>
+                 
+              </div>
+            </div><!-- end class class -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

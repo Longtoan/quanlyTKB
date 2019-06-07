@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row" >
+     
+      <table class="table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Họ Và Tên</th>
+              <th>Ngày sinh </th>
+              <th>Địa Chỉ</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let i of hocsinh">
+            <td>{{i.id_hocsinh}}</td>
+            <td>{{i.tenhs}}</td>
+           
+          </tbody>
+        </table>
+  </div>
+</div>

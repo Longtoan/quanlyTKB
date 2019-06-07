@@ -1,29 +1,29 @@
-
-
-export class lop{
-    id_lop:Number;
-    tenlop:String;
-    khoi: String;
+export class lop {
+  public tenlop: String;
+  public tenkhoi: String;
+  public id_lop: Number;
 }
 export class Mon {
-    id_mon: Number;
-    tenmon: String;
+  public id_mon: Number;
+  public tenmon: String;
 }
-export class giaovien{
-    id_giaovien: number;
-    tengv: String;
-    ngaysinh: Date;
-    phai: boolean;
-    diachi: String;
-    mail: String;
-    chuyenmon: String;
-
-}   
-export class hocsinh{
-    id_hocsinh: number;
-    tenhs: String;
-    id_lop: Number;
-
+export class giaovien {
+  public id_giaovien: number;
+  public tengv: String;
+  public ngaysinh: Date;
+  public phai: boolean;
+  public diachi: String;
+  public mail: String;
+  public tenmon: String;
+}
+export class hocsinh {
+  public id_hocsinh: number;
+  public tenhs: String;
+  public id_lop: Number;
+}
+export class userLogin {
+  public username: String;
+  public password: String;
 }
 
-export const URL_API= "http://localhost:8080/timetable";
+export const URL_API = "http://localhost:8080/timetable";
