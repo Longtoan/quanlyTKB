@@ -7,14 +7,18 @@ export class Mon {
   public id_mon: Number;
   public tenmon: String;
 }
+export class Khoi{
+  public id_khoi: Number;
+  public tenkhoi: String;
+}
 export class giaovien {
   public id_giaovien: number;
   public tengv: String;
-  public ngaysinh: Date;
+  public ngaysinh: String;
   public phai: boolean;
   public diachi: String;
   public mail: String;
-  public tenmon: String;
+  public id_chuyenmon: Number;
 }
 export class hocsinh {
   public id_hocsinh: number;

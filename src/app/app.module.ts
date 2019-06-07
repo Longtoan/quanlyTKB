@@ -13,6 +13,7 @@ import { LoginComponent } from "./login/login.component";
 import { HttpClientModule } from "@angular/common/http";
 import { DSSVComponent } from './tkb-theo-lop/dssv/dssv.component';
 import { AdminComponent } from './admin/admin.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { AdminComponent } from './admin/admin.component';
     DSSVComponent,
     AdminComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

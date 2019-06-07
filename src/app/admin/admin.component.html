@@ -5,30 +5,44 @@
         <a class="nav-link active" id="v-pills-create-tab" data-toggle="pill" href="#v-pills-create" role="tab"
           aria-controls="v-pills-create" aria-selected="true">Create thời khóa biểu</a>
         <a class="nav-link" id="v-pills-addgv-tab" data-toggle="pill" href="#v-pills-addgv" role="tab"
-          aria-controls="v-pills-add" aria-selected="false">Thêm Giáo Viên</a>
+          aria-controls="v-pills-add" aria-selected="false"> Giáo Viên</a>
         <a class="nav-link" id="v-pills-class-tab" data-toggle="pill" href="#v-pills-class" role="tab"
-          aria-controls="v-pills-class" aria-selected="false">Thêm Class</a>
+          aria-controls="v-pills-class" aria-selected="false"> Class</a>
       </div>
     </div>
 
 
     <div class="col-9">
       <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-create" role="tabpanel" aria-labelledby="v-pills-del-tab">...</div>
+        <div class="tab-pane fade show active" id="v-pills-create" role="tabpanel" aria-labelledby="v-pills-del-tab">...
+        </div>
         <div class="tab-pane fade " id="v-pills-addgv" role="tabpanel" aria-labelledby="v-pills-add-tab">
           <form>
+
+            <!-- public id_giaovien: number;
+              public tengv: String;
+              public ngaysinh: Date;
+              public phai: boolean;
+              public diachi: String;
+              public mail: String;
+              public id_chuyenmon: String; -->
+
             <div class="form-row">
-              <div class="form-group col-md-2">
+              <!-- <div class="form-group col-md-2">
                 <label>Id_giaovien</label>
-                <input type="number" class="form-control" id="id_giaovien" placeholder="Id_giaovien">
-              </div>
+                <input type="number" class="form-control" placeholder="Id_giaovien"
+                >
+              </div> -->
               <div class="form-group col-md-5">
                 <label for="inputPassword4">Tên Giáo Viên</label>
-                <input type="text" class="form-control" id="tengv" placeholder="Tên Giáo Viên">
+                <input type="text" class="form-control" id="tengv" placeholder="Tên Giáo Viên"
+                  [(ngModel)]="formGV.tengv" name="first">
               </div>
               <div class="form-group col-md-4">
                 <label for="inputPassword4">Street </label>
-                <input type="text" class="form-control" id="diachi" placeholder="Street">
+                <input type="text" class="form-control" id="diachi" placeholder="Street" 
+                [(ngModel)]="formGV.diachi"
+                  name="second">
               </div>
             </div>
 
@@ -36,66 +50,94 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputCity">Email</label>
-                <input type="text" class="form-control" id="mail">
+                <input type="text" class="form-control" id="mail"
+                [(ngModel)]="formGV.email"
+                  name="thirty"
+                >
               </div>
               <div class="form-group col-md-4">
                 <label for="inputchuyenmon">Chuyên Môn</label>
-                <select id="id_chuyenmon" class="form-control">
+                <select id="id_chuyenmon" class="form-control" 
+                [(ngModel)]="chuyenmon" #ctrl="ngModel" required [ngModelOptions]="{name: 'id_mon'}"
+                >
                   <option selected>Chuyên Môn</option>
-                  <option>...</option>
+                 
+
+                    <ng-container *ngFor="let i of Mon">
+                    
+                        <option >
+                            {{i.id_mon}}.{{i.tenmon}}
+                        </option>
+        
+                    </ng-container>
+                  
                 </select>
               </div>
 
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form> <!--end Form-->
-         <div class="row">
+            <button type="submit" class="btn btn-primary" (click)="btn_Save()">Thêm giáo viên</button>
+          </form>
+          <!--end Form-->
+          <div class="row">
             <div class="col-3" *ngFor="let i of giaovien">
-                <ul class="list-group"  >
+              <ul class="list-group">
+                <div>
+                <li class="list-group-item">{{i.id_giaovien}} {{i.tengv}} 
+                </li><button type="button"
+                class="btn btn-danger">Xóa</button> </div>
 
-                    <li class="list-group-item">{{i.id_giaovien}} {{i.tengv}} <button type="button" class="btn btn-danger">Xóa</button>
-                    </li> 
+              </ul>
 
-                  </ul>
-               
             </div>
           </div><!-- end class giaovien -->
         </div>
         <div class="tab-pane fade" id="v-pills-class" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-          <form>
+          <!-- <form>
             <div class="form-row">
-              <div class="form-group col-md-2">
-                <label>id_lop</label>
-                <input type="number" class="form-control" id="id_hs" placeholder="id_hocsinh">
-              </div>
+              
               <div class="form-group col-md-5">
                 <label for="inputPassword4">Tên Lớp</label>
-                <input type="text" class="form-control" id="tengv" placeholder="Tên Lớp">
+                <input type="text" class="form-control" id="tengv" placeholder="Tên Lớp" 
+                [(ngModel)]="formLop.tenlop" name="first"
+                >
               </div>
               <div class="form-group col-md-4">
-                <label for="inputchuyenmon">id_khối</label>
-                <select id="id_chuyenmon" class="form-control">
+                <label for="inputkhoi">Khoi</label>
+                <select id="id_khoi" class="form-control" 
+                [(ngModel)]="formLop.id_khoi" #ctrl="ngModel" required [ngModelOptions]="{name: 'id_khoi'}"
+                >
                   <option selected>Khối</option>
-                  <option>...</option>
-                </select>
+                 
+
+                    <ng-container *ngFor="let i of Khoi">
+                    
+                        <option >
+                            {{i.id_khoi}}.{{i.tenkhoi}}
+                        </option>
+        
+                    </ng-container>
+                  
+                </select> 
               </div>
             </div>
 
 
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+            <button type="submit" class="btn btn-primary">Thêm Lớp</button>
+          </form> -->
           <div class="row">
-              <div class="col-3" *ngFor="let l of lop">
-                  <ul class="list-group"  >
-  
-                      <li class="list-group-item">{{l.id_lop}} {{l.tenlop}} <button type="button" class="btn btn-danger">Xóa</button>
-                      </li> 
-  
-                    </ul>
-                 
+            <div class="col-3" *ngFor="let l of lop">
+              <ul class="list-group">
+                <div>
+                <li class="list-group-item">{{l.id_lop}} {{l.tenlop}} 
+                    
+                </li> <button type="button" class="btn btn-danger">Xóa</button>
               </div>
-            </div><!-- end class class -->
+
+              </ul>
+
+            </div>
+          </div><!-- end class class -->
         </div>
 
       </div>
