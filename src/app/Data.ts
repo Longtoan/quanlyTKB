@@ -1,13 +1,13 @@
 export class lop {
   public tenlop: String;
-  public tenkhoi: String;
+  public id_khoi: Number;
   public id_lop: Number;
 }
 export class Mon {
   public id_mon: Number;
   public tenmon: String;
 }
-export class Khoi{
+export class Khoi {
   public id_khoi: Number;
   public tenkhoi: String;
 }

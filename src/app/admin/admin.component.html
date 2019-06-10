@@ -55,7 +55,8 @@
             <button type="submit" class="btn btn-primary" (click)="Savegv()">Thêm giáo viên</button>
           </form>
           <!--end Form-->
-          <div class="row"> 
+          <div class="row">
+
             <div class="col-3" *ngFor="let i of giaovien">
               <ul class="list-group">
                 <div>
@@ -69,47 +70,48 @@
           </div><!-- end class giaovien -->
         </div>
         <div class="tab-pane fade" id="v-pills-class" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-          <!-- <form>
+          <form>
             <div class="form-row">
-              
-           
-              <div class="form-group col-md-4">
-                <label for="inputkhoi">Khoi</label>
-                <select id="id_khoi" class="form-control" 
-                [(ngModel)]="formLop.id_khoi" #ctrl="ngModel" required [ngModelOptions]="{name: 'id_khoi'}"
-                >
-                  <option selected>Khối</option>
-                 
 
-                    <ng-container *ngFor="let i of Khoi">
-                    
-                        <option >
-                            {{i.id_khoi}}.{{i.tenkhoi}}
-                        </option>
-        
-                    </ng-container>
-                  
-                </select> 
+
+              <div class="form-group col-md-2">
+                <label>Chuyên Môn</label>
+                <select id="id_chuyenmon" class="form-control" [(ngModel)]="chuyenmon" #ctrl="ngModel" required
+                  [ngModelOptions]="{name: 'id_khoi'}">
+                  <option selected>Chuyên Môn</option>
+                  <ng-container *ngFor="let g of khoi">
+                    <option>
+                      {{g.id_khoi}}.{{g.tenkhoi}}
+                    </option>
+                  </ng-container>
+
+                </select>
               </div>
+              <div class="form-group col-md-2">
+                  <label>Tên Lớp</label>
+                  <input type="text" class="form-control" id="mail" [(ngModel)]="formLop.tenlop" name="six">
+                </div>
+              
             </div>
+            <button type="submit" class="btn btn-primary" (click)="saveLop()">Thêm Lớp</button>
 
 
 
-            <button type="submit" class="btn btn-primary">Thêm Lớp</button>
-          </form> -->
+          </form>
+          <!-- end class class -->
           <div class="row">
             <div class="col-3" *ngFor="let l of lop">
               <ul class="list-group">
                 <div>
                   <li class="list-group-item">{{l.id_lop}} {{l.tenlop}}
 
-                  </li> <button type="button" class="btn btn-danger">Xóa</button>
+                  </li> <button type="button" class="btn btn-danger" (click)="delLop(l.id_lop)">Xóa</button>
                 </div>
 
               </ul>
 
             </div>
-          </div><!-- end class class -->
+          </div>
         </div>
 
       </div>

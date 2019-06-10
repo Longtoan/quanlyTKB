@@ -15,33 +15,44 @@ export class AdminComponent implements OnInit {
   Mon;
   khoi;
   chuyenmon: String = "";
+  tenkhoi: String = "";
   constructor(private _connectAPI: ConnectMySQLService) {}
 
-  // this.formGV.id_giaovien=null;
-  // let arrtam=this.chuyenmon.split('.');
-  // this.formGV.id_chuyenmon=Number(arrtam[0]);
-  // console.log(this.formGV);
-
-  // this._connectAPI.saveGiaovien(this.formGV).subscribe()
-  //console.log(this.chuyenmon)
-
-  
   Savegv() {
-    this.formGV.id_giaovien=null;
-    let arrtam=this.chuyenmon.split('.');
-    this.formGV.id_chuyenmon=Number(arrtam[0]);
-    console.log(this.formGV)
-    this._connectAPI.saveGiaovien(this.formGV).subscribe(data =>{
-      console.log(data)
+    this.formGV.id_giaovien = null;
+    let arrtam = this.chuyenmon.split(".");
+    this.formGV.id_chuyenmon = Number(arrtam[0]);
+    console.log(this.formGV);
+    this._connectAPI.saveGiaovien(this.formGV).then(data => {
+      console.log(data);
       this.dGiaoVien();
-    })
-   // console.log(this.formGV)
- 
+    });
+    // console.log(this.formGV)
+  }
+  saveLop() {
+    this.formLop.id_lop = null;
+    let arr = this.tenkhoi.split(".");
+    this.formLop.id_khoi = Number(arr[0]);
+    console.log(this.formLop);
+    this._connectAPI.saveLop(this.formLop).subscribe(data => {
+      console.log(data);
+      this.dLop();
+    });
   }
   //delete Giáo viên
   delGiaovien(id_giaovien) {
     this._connectAPI.delGiaoVien(id_giaovien).subscribe(data => {
-      console.log(data);
+      if (JSON.stringify(data)) {
+        this.dGiaoVien();
+      }
+    });
+  }
+  //delete Lớp
+  delLop(id_lop) {
+    this._connectAPI.delGiaoVien(id_lop).subscribe(data => {
+      if (JSON.stringify(data)) {
+        this.dLop();
+      }
     });
   }
   //list danh sách Giáo viên
@@ -74,5 +85,6 @@ export class AdminComponent implements OnInit {
     this.dLop();
     this.dMon();
     this.formGV = new giaovien();
+    this.formLop = new lop();
   }
 }
