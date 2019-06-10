@@ -11,9 +11,9 @@ import { TkbGiangVienComponent } from "./tkb-giang-vien/tkb-giang-vien.component
 import { LoginComponent } from "./login/login.component";
 
 import { HttpClientModule } from "@angular/common/http";
-import { DSSVComponent } from './tkb-theo-lop/dssv/dssv.component';
-import { AdminComponent } from './admin/admin.component';
-import { FormsModule } from '@angular/forms';
+import { DSSVComponent } from "./tkb-theo-lop/dssv/dssv.component";
+import { AdminComponent } from "./admin/admin.component";
+import { FormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +26,7 @@ import { FormsModule } from '@angular/forms';
     DSSVComponent,
     AdminComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

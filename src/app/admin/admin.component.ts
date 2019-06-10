@@ -1,52 +1,78 @@
-import { Component, OnInit } from '@angular/core';
-import {giaovien,lop,Mon,Khoi} from "../Data";
-import {ConnectMySQLService} from "../connect-my-sql.service"
+import { Component, OnInit } from "@angular/core";
+import { giaovien, lop, Mon, Khoi } from "../Data";
+import { ConnectMySQLService } from "../connect-my-sql.service";
+
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  selector: "app-admin",
+  templateUrl: "./admin.component.html",
+  styleUrls: ["./admin.component.scss"]
 })
 export class AdminComponent implements OnInit {
-  formGV:giaovien;
+  formGV: giaovien;
   formLop: lop;
   giaovien;
   lop;
   Mon;
   khoi;
-   chuyenmon:String="";
-  constructor(private _connectAPI: ConnectMySQLService) { }
+  chuyenmon: String = "";
+  constructor(private _connectAPI: ConnectMySQLService) {}
 
-  btn_Save(){
+  // this.formGV.id_giaovien=null;
+  // let arrtam=this.chuyenmon.split('.');
+  // this.formGV.id_chuyenmon=Number(arrtam[0]);
+  // console.log(this.formGV);
+
+  // this._connectAPI.saveGiaovien(this.formGV).subscribe()
+  //console.log(this.chuyenmon)
+
+  
+  Savegv() {
     this.formGV.id_giaovien=null;
-    this.formGV.ngaysinh="";
     let arrtam=this.chuyenmon.split('.');
     this.formGV.id_chuyenmon=Number(arrtam[0]);
-    console.log(this.formGV);
-
-    this._connectAPI.saveGiaovien().subscribe(d=>{
-      console.log(d)
+    console.log(this.formGV)
+    this._connectAPI.saveGiaovien(this.formGV).subscribe(data =>{
+      console.log(data)
+      this.dGiaoVien();
     })
-
-    //console.log(this.chuyenmon)
+   // console.log(this.formGV)
+ 
   }
-  
-
-  ngOnInit() {
-    this.formGV=new giaovien();
-    
-    this._connectAPI.getAllgiaovien().subscribe((gv: giaovien) => {
-      this.giaovien = gv;
+  //delete Giáo viên
+  delGiaovien(id_giaovien) {
+    this._connectAPI.delGiaoVien(id_giaovien).subscribe(data => {
+      console.log(data);
     });
+  }
+  //list danh sách Giáo viên
+  dGiaoVien() {
+    this._connectAPI.getAllgiaovien().subscribe((d: giaovien) => {
+      this.giaovien = d;
+    });
+  }
+  // list danh sach lop
+  dLop() {
     this._connectAPI.getAlllop().subscribe((d: lop) => {
       this.lop = d;
     });
-    this._connectAPI.getchuyenmon().subscribe((cm:Mon)=>{
-      this.Mon = cm
-
-    });
-    this._connectAPI.getkhoi().subscribe((k: Khoi)=>{
-      this.khoi = k;
-    })
   }
-
+  // list danh sach môn
+  dMon() {
+    this._connectAPI.getchuyenmon().subscribe((cm: Mon) => {
+      this.Mon = cm;
+    });
+  }
+  // list danh sach khoi
+  dKhoi() {
+    this._connectAPI.getkhoi().subscribe((k: Khoi) => {
+      this.khoi = k;
+    });
+  }
+  ngOnInit() {
+    this.dGiaoVien();
+    this.dKhoi();
+    this.dLop();
+    this.dMon();
+    this.formGV = new giaovien();
+  }
 }

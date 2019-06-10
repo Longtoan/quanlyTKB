@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: "xepTkb", component: XepTkbComponent },
   { path: "login", component: LoginComponent },
   { path: "tkbTheoLop", component: TkbTheoLopComponent },
-  { path: "tkbTheoLop/:id", component: DSSVComponent },
+  { path: "dshs", component: DSSVComponent },
   { path: "admin", component: AdminComponent }
 ];
 

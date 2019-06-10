@@ -3,8 +3,8 @@
     <div class="col-4 col-md-4" *ngFor="let i of lop">
      
       <ul class="list-group" >
-
-        <li class="list-group-item" routerLink="/dssv:id" >  {{i.tenlop}}</li>
+        
+        <li class="list-group-item"  (click)="readclassid(i.id_lop)">  {{i.tenlop}}</li>
 
       </ul>
     </div>

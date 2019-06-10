@@ -12,12 +12,10 @@ export class Khoi{
   public tenkhoi: String;
 }
 export class giaovien {
-  public id_giaovien: number;
+  public id_giaovien: Number;
   public tengv: String;
-  public ngaysinh: String;
-  public phai: boolean;
   public diachi: String;
-  public mail: String;
+  public email: String;
   public id_chuyenmon: Number;
 }
 export class hocsinh {
