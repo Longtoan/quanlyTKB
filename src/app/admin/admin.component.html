@@ -16,27 +16,32 @@
       <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-create" role="tabpanel" aria-labelledby="v-pills-del-tab">...
         </div>
+         
         <div class="tab-pane fade " id="v-pills-addgv" role="tabpanel" aria-labelledby="v-pills-add-tab">
           <form>
-
+           
             <div class="form-row">
 
-              <div class="form-group col-md-5">
+              <div class="form-group col-md-4">
                 <label>Tên Giáo Viên</label>
                 <input type="text" class="form-control" placeholder="Tên Giáo Viên" [(ngModel)]="formGV.tengv"
                   name="first">
               </div>
+            
+            
               <div class="form-group col-md-4">
                 <label>Street </label>
                 <input type="text" class="form-control" placeholder="Street" [(ngModel)]="formGV.diachi" name="second">
               </div>
-            </div>
+            </div>  
 
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-4">
                 <label>Email</label>
                 <input type="text" class="form-control" id="mail" [(ngModel)]="formGV.email" name="thirty">
               </div>
+           
+            
               <div class="form-group col-md-4">
                 <label>Chuyên Môn</label>
                 <select id="id_chuyenmon" class="form-control" [(ngModel)]="chuyenmon" #ctrl="ngModel" required
@@ -50,22 +55,77 @@
 
                 </select>
               </div>
-
             </div>
+
             <button type="submit" class="btn btn-primary" (click)="Savegv()">Thêm giáo viên</button>
           </form>
           <!--end Form-->
-          <div class="row">
+          <div class="form-row">
 
             <div class="col-3" *ngFor="let i of giaovien">
               <ul class="list-group">
                 <div>
-                  <li class="list-group-item">{{i.id_giaovien}} {{i.tengv}}
+                  <li class="list-group-item"> <span class="hide">{{i.id_giaovien}} </span> {{i.tengv}}
                   </li><button type="button" class="btn btn-danger" (click)="delGiaovien(i.id_giaovien)">Xóa</button>
+                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">Sửa</button>
                 </div>
 
               </ul>
+              <!--modal-->
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Sửa Thông Tin</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-row">
 
+                        <div class="form-group col-md-6">
+                          <label>Tên Giáo Viên</label>
+                          <input type="text" class="form-control" placeholder="Tên Giáo Viên" [(ngModel)]="formGV.tengv"
+                            name="mfirst">
+                        </div>
+                      
+                      
+                        <div class="form-group col-md-6">
+                          <label>Street </label>
+                          <input type="text" class="form-control" placeholder="Street" [(ngModel)]="formGV.diachi" name="msecond">
+                        </div>
+                      </div>  
+          
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label>Email</label>
+                          <input type="text" class="form-control" id="mail" [(ngModel)]="formGV.email" name="mthirty">
+                        </div>
+                     
+                      
+                        <div class="form-group col-md-6">
+                          <label>Chuyên Môn</label>
+                          <select id="id_chuyenmon" class="form-control" [(ngModel)]="chuyenmon" #ctrl="ngModel" required
+                            [ngModelOptions]="{name: 'm.id_mon'}">
+                            <option selected>Chuyên Môn</option>
+                            <ng-container *ngFor="let i of Mon">
+                              <option>
+                                {{i.id_mon}}.{{i.tenmon}}
+                              </option>
+                            </ng-container>
+          
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+               </div> <!--end modal sửa-->
             </div>
           </div><!-- end class giaovien -->
         </div>
@@ -76,7 +136,7 @@
 
               <div class="form-group col-md-2">
                 <label>Chuyên Môn</label>
-                <select id="id_chuyenmon" class="form-control" [(ngModel)]="chuyenmon" #ctrl="ngModel" required
+                <select id="id_khoi" class="form-control" [(ngModel)]="tenkhoi" #ctrl="ngModel" required
                   [ngModelOptions]="{name: 'id_khoi'}">
                   <option selected>Chuyên Môn</option>
                   <ng-container *ngFor="let g of khoi">
@@ -84,28 +144,24 @@
                       {{g.id_khoi}}.{{g.tenkhoi}}
                     </option>
                   </ng-container>
-
                 </select>
               </div>
               <div class="form-group col-md-2">
-                  <label>Tên Lớp</label>
-                  <input type="text" class="form-control" id="mail" [(ngModel)]="formLop.tenlop" name="six">
-                </div>
-              
+                <label>Tên Lớp</label>
+                <input type="text" class="form-control" id="mail" [(ngModel)]="formLop.tenlop" name="six">
+              </div>
             </div>
             <button type="submit" class="btn btn-primary" (click)="saveLop()">Thêm Lớp</button>
-
-
-
           </form>
           <!-- end class class -->
           <div class="row">
             <div class="col-3" *ngFor="let l of lop">
               <ul class="list-group">
                 <div>
-                  <li class="list-group-item">{{l.id_lop}} {{l.tenlop}}
+                  <li class="list-group-item"><span class="hide">{{l.id_lop}} </span>{{l.tenlop}}
 
-                  </li> <button type="button" class="btn btn-danger" (click)="delLop(l.id_lop)">Xóa</button>
+                  </li>
+                  <button type="button" class="btn btn-danger" (click)="delLop(l.id_lop)">Xóa</button>
                 </div>
 
               </ul>

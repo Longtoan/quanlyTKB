@@ -1,7 +1,8 @@
 export class lop {
+  public id_lop: Number;
   public tenlop: String;
   public id_khoi: Number;
-  public id_lop: Number;
+  
 }
 export class Mon {
   public id_mon: Number;
