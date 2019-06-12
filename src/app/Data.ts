@@ -22,6 +22,10 @@ export class giaovien {
 export class hocsinh {
   public id_hocsinh: number;
   public tenhs: String;
+  public gioitinh: String;
+  public ngaysinh: Date;
+  public dantoc: String;
+  public noisinh: String;
   public id_lop: Number;
 }
 export class userLogin {

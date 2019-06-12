@@ -10,12 +10,14 @@ import { ConnectMySQLService } from "../connect-my-sql.service";
 export class AdminComponent implements OnInit {
   formGV: giaovien;
   formLop: lop;
+  formMon: Mon;
   giaovien;
   lop;
   Mon;
   khoi;
   chuyenmon: String = "";
   tenkhoi: String = "";
+  tenmon: String = "";
   constructor(private _connectAPI: ConnectMySQLService) {}
   // save giáo viên
   Savegv() {
@@ -24,7 +26,7 @@ export class AdminComponent implements OnInit {
     this.formGV.id_chuyenmon = Number(arrtam[0]);
     console.log(this.formGV);
     this._connectAPI.saveGiaovien(this.formGV).then(data => {
-      console.log(data);
+      
       this.dGiaoVien();
     });
     // console.log(this.formGV)
@@ -38,8 +40,9 @@ export class AdminComponent implements OnInit {
     console.log(this.formLop);
     
     this._connectAPI.saveLop(this.formLop).then(data => {
-      console.log(data);
+      
       this.dLop();
+     
     });
   }
   //delete Giáo viên

@@ -1,20 +1,26 @@
 <div class="container">
-  <div class="row" >
-     
-      <table class="table">
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Họ Và Tên</th>
-              <th>Ngày sinh </th>
-              <th>Địa Chỉ</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let i of hocsinh">
-            <td>{{i.id_hocsinh}}</td>
-            <td>{{i.tenhs}}</td>
-           
-          </tbody>
-        </table>
+  <div class="row">
+
+    <table class="table">
+      <thead>
+        <tr>
+         
+          <th>Họ Và Tên</th>
+          <th>Giới Tính</th>
+          <th>Ngày sinh</th>
+          <th>Dân Tộc </th>
+          <th>Nơi Sinh</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let i of hocsinh">
+       
+        <td>{{i.tenhs}}</td>
+        <td>{{i.gioitinh}}</td>
+        <td>{{i.ngaysinh}}</td>
+        <td>{{i.dantoc}}</td>
+        <td>{{i.noisinh}}</td>
+
+      </tbody>
+    </table>
   </div>
 </div>

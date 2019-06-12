@@ -9,14 +9,14 @@ import { LoginComponent } from "./login/login.component";
 import { DSSVComponent } from "./tkb-theo-lop/dssv/dssv.component";
 import { AdminComponent } from './admin/admin.component';
 const routes: Routes = [
-  { path: "", redirectTo: "moTkb", pathMatch: "full" },
+  { path: "", redirectTo: "admin", pathMatch: "full" },
   { path: "", component: HomeComponent },
   { path: "moTkb", component: MoTkbComponent },
   { path: "tkbGiangvien", component: TkbGiangVienComponent },
   { path: "xepTkb", component: XepTkbComponent },
   { path: "login", component: LoginComponent },
   { path: "tkbTheoLop", component: TkbTheoLopComponent },
-  { path: "dshs", component: DSSVComponent },
+  { path: "dshs/:id", component: DSSVComponent },
   { path: "admin", component: AdminComponent }
 ];
 

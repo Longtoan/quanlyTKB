@@ -4,8 +4,8 @@
      
       <ul class="list-group" >
         
-        <li class="list-group-item"  (click)="readclassid(i.id_lop)">  {{i.tenlop}}</li>
-
+        <!-- <li class="list-group-item" routerLink="/dshs/{{i.id_lop}}"><span>{{i.id_lop}}</span>  {{i.tenlop}}</li> -->
+        <li class="list-group-item" (click) = "showClassById(i.id_lop)"><span>{{i.id_lop}}</span>  {{i.tenlop}}</li>
       </ul>
     </div>
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { lop, hocsinh } from "../Data";
 import { ConnectMySQLService } from "../connect-my-sql.service";
 import { Router} from '@angular/router';
+
 @Component({
   selector: "app-tkb-theo-lop",
   templateUrl: "./tkb-theo-lop.component.html",
@@ -22,13 +23,19 @@ export class TkbTheoLopComponent implements OnInit {
   readHS(){
     
   }
-  readclassid(id_lop){
-    this._connectAPI.getIDCLASS(id_lop).subscribe((d:lop) =>{
+  showClassById(id){
+    this.router.navigateByUrl(`dshs/${id}`)
+    // this._connectAPI.getIDCLASS(id).subscribe(res =>{
       
-        return this.router.navigate(['/dshs'], {queryParams:{page:1}});
+    // })
+  }
+  // readclassid(id_lop){
+  //   this._connectAPI.getIDCLASS(id_lop).subscribe((d:lop) =>{
+      
+  //       return this.router.navigate(['/dshs'], {queryParams:{page:1}});
         
       
-    })
-  }
+  //   })
+  // }
   
 }
